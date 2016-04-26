@@ -54,17 +54,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final int REQUEST_READ_CONTACTS = 0;
 
     /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
-    private int sid = 0;
+    int sid = 0;
+    RIPUSD_WebServiceSoapSoapBinding service = new RIPUSD_WebServiceSoapSoapBinding();
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -309,8 +303,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         private final String mEmail;
         private final String mPassword;
-
-        RIPUSD_WebServiceSoapSoapBinding service = new RIPUSD_WebServiceSoapSoapBinding();
 
         UserLoginTask(String email, String password) {
             mEmail = email;
